@@ -27,13 +27,14 @@ namespace sample_of_keitaisoanalysis
                 //形態素解析されるもとの文章
                 string text = richTextBox1.Text;// "私はプログラマーです";
 
+                string[] array_str = text.Split("\n");
+
                 var tagger = MeCabTagger.Create();
 
                 //形態素解析を行い結果を記録
-                string result = tagger.Parse(text);
+                string result = tagger.Parse(array_str[array_str.Length - 1]);
 
                 richTextBox2.Text = result;
-
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -47,8 +48,6 @@ namespace sample_of_keitaisoanalysis
             string result = tagger.Parse(text);
 
             richTextBox2.Text = result;
-
-
         }
     }
 }
